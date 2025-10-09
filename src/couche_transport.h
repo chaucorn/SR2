@@ -37,6 +37,10 @@ typedef struct paquet_s {
 /* Fonctions utilitaires couche transport */
 /* ************************************** */
 
+uint8_t generer_control(paquet_t* paquet);
+int inc(int x, int modulo);
+
+
 /*--------------------------------------*
 * Fonction d'inclusion dans la fenetre *
 *--------------------------------------*/

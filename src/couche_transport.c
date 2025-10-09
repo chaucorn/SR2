@@ -9,6 +9,20 @@
 
 // RAJOUTER VOS FONCTIONS DANS CE FICHIER...
 
+uint8_t generer_control(paquet_t* paquet){
+    uint8_t sum = paquet->type ^ paquet->num_seq ^ paquet->lg_info;
+        for (int i = 0; i < paquet->lg_info; i++){
+            sum ^= paquet->info[i];
+        }
+
+    return sum;
+    
+
+}
+
+int inc(int x, int modulo) {
+    return (x + 1) % modulo;
+}
 
 
 /*--------------------------------------*/
