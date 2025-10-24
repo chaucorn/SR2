@@ -2,7 +2,7 @@
 #define __COUCHE_TRANSPORT_H__
 
 #include <stdint.h> /* uint8_t */
-
+#include <stdbool.h> /* bool */
 #define MAX_INFO 124
 
 /*************************
@@ -37,9 +37,17 @@ typedef struct paquet_s {
 /* Fonctions utilitaires couche transport */
 /* ************************************** */
 
-uint8_t generer_control(paquet_t* paquet);
+int generer_control(paquet_t* paquet);
 int inc(int x, int modulo);
+int dec(int seq, int modulo);
+int verifier_control(paquet_t* paquet);
 
+
+
+extern int generer_controle(const paquet_t *paquet);
+extern int verifier_controle(const paquet_t *paquet);
+extern void retransmit(int const borne_inf, int const curseur, paquet_t *buffer);
+extern int check_and_deliver(paquet_t buffer[], int recu[], int *borne_inf);
 
 /*--------------------------------------*
 * Fonction d'inclusion dans la fenetre *

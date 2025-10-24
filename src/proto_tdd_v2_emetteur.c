@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
         /* remise à la couche reseau */
         vers_reseau(&paquet);
         depart_temporisateur(50);
-        int evt = attendre();
+        int evt = attendre(); /*attendre() == -1 : paquet reçu*/
         while (evt != -1){ /*timeout*/
             vers_reseau(&paquet);
             depart_temporisateur(50);
